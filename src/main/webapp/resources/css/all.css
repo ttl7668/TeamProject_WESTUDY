@@ -1,0 +1,49 @@
+
+
+/* 가나초콜릿 */
+
+@font-face {
+	font-family: 'NEXON Lv1 Gothic OTF';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	margin: 0 auto;
+}
+
+html, body, section {
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: 'NEXON Lv1 Gothic OTF';
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* 나는 분홍버튼이 죠와 */
+/* 근데 안이뻐 엉엉 */
+
+.point-btn{
+	border: 0;
+	color: #fff;
+    background-color: black;
+    line-height: 2.428571;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.simple-btn{
+	border: 0;
+	color: #fff;
+	background-color: #cccccc;
+    line-height: 2.428571;
+    font-size: 18px;
+    border-radius: 5px;;
+}
+a { text-decoration:none ; color:#000000}
+a:hover { text-decoration: none;color:#000;}

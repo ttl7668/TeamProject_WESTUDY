@@ -1,0 +1,163 @@
+
+@font-face {
+	font-family: 'NEXON Lv1 Gothic OTF';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body{font-family: 'NEXON Lv1 Gothic OTF';
+    font-style: normal; 
+    font-weight: normal;
+}
+*{
+    margin: 0 auto;
+}
+
+html, body, section {
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+}
+
+section {
+    padding:40px 280px 40px 280px;
+}
+
+textarea {
+    resize: none;
+ }
+
+/* 폼 파트 */
+/* 스탭원 */
+.lecture-step-one{
+    display: flex;
+    justify-content: center;
+}
+.lecture-step-one > div {
+    padding:30px;
+    margin: 0;
+}
+
+.lecture-info{
+    width: 600px;
+}
+
+/* 레이아웃 수정시 제일 먼저 손볼것! */
+.lecture-view-info{
+    border-left: #e2e2e2 solid 1px;
+    margin-left: 100px;
+}
+
+.lecture-view-info > div{
+    display: inline-block;
+}
+
+.guid{
+    font-size: 10px;
+    color: #888;
+}
+
+.form-notice{
+    font-size: 10px;
+}
+
+.radio-box{
+	display: flex;
+  justify-content: space-around;
+}
+.radio-box  > div {
+	display: inline-block; margin-left:30px;
+}
+/* 임의로 만든 공간. 추후 수정 예정 */
+
+.lecture-cover-img{
+    width: 180px; height: 320px;
+}
+.lecture-thumbnail-img{
+    width: 180px; height: 135px;
+}
+
+.lecture-info-img{
+    display: flex;
+}
+.lecture-cover-img, .lecture-thumbnail-img{
+    border-radius: 5px;
+    border: 1px solid #9a9a9a;
+    text-align: center;
+
+}
+.lecture-cover-img > svg, .lecture-thumbnail-img > svg{
+    height: 100%;
+}
+
+/******************************************************/
+.summary-box-space{
+    padding:40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.lecture-summary-img{
+    margin-bottom:15px;
+    border-radius: 5px;
+    border: 1px #a9a9a9 solid;
+    width: 263px; height: 467px;
+}
+
+.lecture-summary{
+    margin:20px;
+}
+
+.add-write-button{
+    margin:20px;
+    border: 3px #a9a9a9 dotted; border-radius: 8px;
+    width: 263px; height: 634px;
+    margin: 0;
+    display: inline-block;
+}
+
+.add-write-button > button {
+    width: 257px; height: 628px;
+    border: none; padding:0;
+    background-color: #fff;
+}
+
+/******************************************************/
+.qna-box{
+    background-color: #999;
+    border-radius: 8px;
+    width: 500px; height: 90px; padding:10px; margin:5px;
+}
+
+.qna-box > div {
+    margin: 6px; margin-left:30px;
+}
+
+.qna-box > div > input{
+    width: 400px;
+}
+
+.add-qna-button{
+    margin: 6px;
+    width: 500px; height: 90px;
+    border: 3px #a9a9a9 dotted; border-radius: 8px;
+}
+
+.add-qna-button > button {
+    width: 494px; height: 84px;
+    border: none;
+    background-color: #fff;
+}
+
+/******************************************/
+
+.submit-button{
+    right: 0px;
+    border: none;
+    color: #fff;
+    background-color: rgb(236, 176, 176);
+    width: 244px; height: 62px;
+}
+

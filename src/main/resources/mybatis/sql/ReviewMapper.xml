@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.review.mapper">
+
+   <select id="reviewBoard" resultType="ReviewVO">
+      select product from Review where pno= #{pno}
+   </select>
+
+   <insert id="reviewRegist">
+      insert into review (writer, title, pno ,uno , content, satisfaction) values
+      (#{writer}, #{title},#{pno} ,#{uno} , #{content}, #{satisfaction})
+   </insert>
+   
+   <select id="getList" parameterType="map" resultType="ReviewVO">
+       select * from review where pno = #{pno } order by rno desc limit #{startNum},10;
+   </select>
+   
+   <select id="getReviewDetail" parameterType="ReviewVO" resultType="ReviewVO"> 
+      select * 
+      from 
+      	Review 
+      where 
+      	pno = pno
+      <if test="rno != null">
+      	and rno = #{rno}
+      </if>
+      <if test="uno != null">
+      	and uno = #{uno}
+      </if>
+   </select>
+   
+   <select id="getReviewBoard" resultType="ReviewVO">
+      select * from review where order by rno desc limit #{rowStart}, #{amount}
+   </select>
+      
+   <select id="getReviewTotal" resultType="Integer">
+      select count(*) from review
+   </select>
+   
+   <select id="getReviewAvg" resultType="java.lang.Double">
+   	select avg(satisfaction) as avg from review where pno = #{pno} group by pno 
+   </select>
+   
+   <update id="ReviewUpdate">
+      update review set writer= #{writer},content= #{content},satisfaction= #{satisfaction}  where rno=#{rno};
+   </update>
+   
+   <delete id="ReviewDelete" >
+      delete from review where rno = #{rno};
+   </delete>
+</mapper>

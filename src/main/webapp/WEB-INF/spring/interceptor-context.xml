@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
+   xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   
+   <!-- 인터셉터로 생성할 클래스를 빈으로 생성 -->
+   <bean id="userInterceptor" class="com.project.util.interceptor.UserInterceptor"/>
+   <bean id="creatorMyPageInterceptor" class="com.project.util.interceptor.CreatorMyPageInterceptor"/>
+   <!-- <bean id="ReviewInterceptor" class="com.project.util.interceptor.ReviewInterceptor"/> -->
+   <!-- <bean id="boardInterceptor" class="com.team404.util.interceptor.BoardInterceptor"/> -->
+   
+   <!-- 요청을 가로챌 경로에 대해 bean을 주입 -->
+   <mvc:interceptors>
+      <mvc:interceptor >
+         <mvc:mapping path="/User/CreatorJoin"/>
+         <mvc:mapping path="/User/Mypage"/> 
+         <ref bean="userInterceptor"/>
+      </mvc:interceptor>
+      
+      
+      <mvc:interceptor >
+         <mvc:mapping path="/Creator/MyCreatorPage"/>
+         <ref bean="creatorMyPageInterceptor"/>
+      </mvc:interceptor>
+      <!-- 
+       <mvc:interceptor >
+         <mvc:mapping path="/Review/ReviewModify"/>
+          <mvc:mapping path="/Review/ReviewWrite"/>
+         <ref bean="ReviewInterceptor"/>
+      </mvc:interceptor>
+       -->
+      <!-- 
+      <mvc:interceptor>
+         <mvc:mapping path="/freeBoard/freeModify"/>
+         <mvc:mapping path="/freeBoard/freeUpdate"/>
+         <mvc:mapping path="/freeBoard/freeDelete"/>
+         <ref bean="boardInterceptor"/>
+      </mvc:interceptor>
+       -->
+   
+   </mvc:interceptors>
+   
+
+</beans>

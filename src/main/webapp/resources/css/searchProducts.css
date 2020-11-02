@@ -1,0 +1,23 @@
+*{margin:0;}
+
+section {
+	padding: 50px 10% 0 10%;
+}
+
+section > div {
+    width: 2000px;
+}
+
+.search-keyword{
+    margin: 20px;
+}
+
+.search_tit{
+    width:80%;
+}
+.search_tit_h2{
+    margin-bottom:30px;
+}
+.search_span{
+    margin:30px;
+}

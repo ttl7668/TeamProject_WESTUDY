@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.project.product.mapper">
+      
+      
+      <!-- <insert id="ProductRegist">
+            Insert into products (title, mentor, category, intro, contents, QnA)
+            values(#{productVO.title}, #{productVO.mentor}, #{productVO.category}, #{productVO.intro}, #{multicontentVO.listStr}, #{multiqnaVO.QnAlistStr})
+      </insert> -->
+      
+      <insert id="ProductRegist">
+            <!-- Insert into products (uno, title, category, intro, volume, price, contents, qna, term, creator, thumbnail, startDate, endDate)
+            values(#{productVO.uno}, #{productVO.title}, #{productVO.category}, #{productVO.intro}, #{productVO.volume}, #{productVO.price}, #{multicontentVO.listStr}, #{multiqnaVO.qnAListStr}, #{productVO.term}, #{productVO.creator}, #{productVO.thumbnail}, #{productVO.startDate}, #{productVO.endDate} ) -->
+      		 Insert into products (uno, title, 
+                              category, intro, 
+                              volume, price, 
+                              contents, qna, 
+                              term, creator, 
+                              thumbnail, 
+                              startDate, endDate,
+                              titleSearch,
+                              introSearch,
+                              creatorSearch
+                              )
+            values(#{productVO.uno}, 
+            #{productVO.title}, 
+            #{productVO.category}, 
+            #{productVO.intro}, 
+            #{productVO.volume}, 
+            #{productVO.price}, 
+            #{multicontentVO.listStr}, 
+            #{multiqnaVO.qnAListStr}, 
+            #{productVO.term}, #{productVO.creator}, 
+            #{productVO.thumbnail}, 
+            #{productVO.startDate}, #{productVO.endDate},
+            #{productVO.titleSearch},
+            #{productVO.introSearch},
+            #{productVO.creatorSearch} )
+      </insert>
+      
+      
+      <insert id="ProductModify">
+            update products 
+            set title = #{productVO.title}, 
+               category = #{productVO.category}, 
+               intro = #{productVO.intro}, 
+               volume = #{productVO.volume}, 
+               price = #{productVO.price}, 
+               contents = #{multicontentVO.listStr}, 
+               qna = #{multiqnaVO.qnAListStr}, 
+               term = #{productVO.term}, 
+               creator = #{productVO.creator}, 
+               thumbnail = #{productVO.thumbnail}, 
+               startDate = #{productVO.startDate}, 
+               endDate = #{productVO.endDate}
+            where pno=#{productVO.pno}
+      </insert>
+      
+      
+      <select id="getProductInfo" resultType="ProductResultVO">
+            select * from products where pno = #{pno}
+      </select>
+      
+      <select id="ProductGetNextPno" resultType="Integer">
+            select max(pno) from products;
+      </select>
+      
+      <insert id="enrollProduct">
+            insert into enroll values(#{pno},#{uno})
+      </insert>
+      
+      <select id="getAllProductList" resultType="ProductResultVO">
+            select * from products
+      </select>
+      
+      <select id="getMyPageProductList" resultType="ProductResultVO">
+      		<!-- select p.*
+      		from enroll as e
+      		join products as p
+      		on e.pno = p.pno
+      		where p.pno = #{pno} -->
+      		
+      		<!-- 20.10.07 수정 -->
+      		select * 
+			from products 
+			where pno in (	select pno 
+							from enroll 
+							where uno = #{uno}	)
+      </select>
+      
+      <insert id="PaymentRegist">
+            insert into payment (pno, uno, amount, cardGrantNum) values (#{pno}, #{uno}, #{amount}, #{cardGrantNum})
+      </insert>
+      
+      <select id="IsStudent" resultType="Integer">
+            select count(*) from enroll where pno = #{pno} and uno = #{uno}
+      </select>
+      
+      
+      <select id="NumberOfStudentByCategory" resultType="LineGraphVO">
+            select p.category, sum(e.student) as sum
+         from products as p
+         join (select pno, count(*) as student
+                  from enroll
+                  group by pno) as e
+         on p.pno = e.pno
+         group by category;
+         
+         
+         
+         <!-- 
+         select category, count(uno)
+         from products
+         join enroll on products.pno = enroll.pno
+         group by category
+         order by count(uno) desc;
+          -->
+          
+          <!-- 
+         select category, count(e.uno)
+         from products as p
+         join enroll as e on p.pno = e.pno
+         group by category
+         order by count(e.uno) desc;
+          -->
+          
+      </select>
+      
+      
+      <select id="NumberOfProductByCategory" resultType="PiGraphVO">
+            select category, count(*) as total from products group by category;
+      </select>
+      
+      
+      <insert id="CreateInterest">
+      		insert into interest values(#{pno}, #{uno})
+      </insert>
+      
+      <delete id="DeleteInterest">
+      		delete from interest where pno=#{pno} and uno=#{uno}
+      </delete>
+      
+      <select id="IsInterst" resultType="Integer">
+      		select count(*) from interest where pno=#{pno} and uno=#{uno}
+      </select>
+      
+      
+      <select id="getSameProductList" resultType="ProductResultVO">
+      		select * from products where category = #{category} and not pno = #{pno}
+      </select>
+      
+      
+      <select id="getTopProductList" resultType="ProductResultVO">
+      		<!-- select p.pno, p.title, i.intercount -->
+      		select *
+			from products as p
+			join (select pno, count(*) as intercount
+					from interest
+					group by pno) as i
+			on p.pno = i.pno
+			order by i.intercount desc
+			limit 0,10;
+      </select>
+      
+      
+      
+      <select id="getTopThreeProductList" resultType="ProductResultVO">
+      		<!-- select p.pno, p.title, i.intercount -->
+      		select *
+			from products as p
+			join (select pno, count(*) as intercount
+					from interest
+					group by pno) as i
+			on p.pno = i.pno
+			order by i.intercount desc
+			limit 0,3;
+      </select>
+      
+      
+      
+      
+      <select id="getRecentProductList" resultType="ProductResultVO">
+      		select * from products order by regdate desc limit 0,12
+      </select>
+      
+      
+      
+       
+      <select id="searchProduct" resultType="ProductResultVO">
+            select *
+            from products
+            <choose>
+               <when test='searchValue == "titleSearch"'>
+                   where titleSearch like concat('%', #{keyword}, '%')
+               </when>
+               <when test='searchValue == "creatorSearch"'>
+                   where creatorSearch like concat('%', #{keyword}, '%')
+               </when>
+               <when test='searchValue == "introSearch"'>
+                   where introSearch like concat('%', #{keyword}, '%')
+               </when>
+               <when test='searchValue == "category"'>
+                   where category like concat('%', #{keyword}, '%')
+               </when>
+               <otherwise>
+                  where 1=1
+               </otherwise>
+            </choose>
+      </select>
+      
+      
+      
+      
+      <!-- <insert id="ProductRegist">
+            Insert into products (title, mentor, category, intro)
+            values(#{title}, #{mentor}, #{category}, #{intro})
+      </insert>
+      
+      <insert id="ProductListRegist">
+            Insert into contents (pno, ContentImgBox, ContentTextBox)
+            values(#{pno}, #{ContentImgBox}, #{ContentTextBox})
+      </insert> -->
+      
+      
+      
+</mapper>

@@ -1,0 +1,342 @@
+    *{padding:0;margin:0;box-sizing:border-box;}
+
+    form {
+        border-radius: 0px;
+        padding: 15px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+        }
+   input{margin: 0; padding: 0;}
+   label {display: inline-block;}
+   svg{display: none;}
+
+    /*------로그인-------*/ 
+    .containerL{margin-left: 0;}  
+    .Loginrow{
+            display: flex;
+            justify-content: center;}
+
+    .Form-Container{
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        padding: 24px;
+        width: 50%;
+    }
+
+    .Login-Form-Container{
+        width: 100%;
+        max-width: 430px;
+    }
+    .Login-Form-Top{
+        position: relative;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .Login-Title-Text{
+        font-size: 32px;
+        font-weight: bold;
+        color: rgb(62, 64, 66);
+    }
+    .Styled-Form-Group{
+        display: flex;
+        flex-direction: column;
+        margin: 0px 0px 16px;
+    }
+    .Label-Name{
+        font-size: 14px;
+        font-weight: solid;
+        line-height: 20px;
+        letter-spacing: -0.15px;
+        color: rgb(62, 64, 66);
+        margin: 0px 0px 4px;
+    }
+    .Styled-Input-Field{
+        display: block;
+        margin-top: 2px;
+        border-radius: 3px;
+    }
+    .Styled-Input-Field-Text{
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 20px;
+        background-color: white;
+        height: 48px;
+        width: 100%;
+        color: rgb(27, 28, 29);
+        box-sizing: border-box;
+        margin: 0px;
+        border-width: 1px;
+        border-style: solid;
+        border-color:rgb(221, 224, 226);
+        border-image: initial;
+        border-radius: 3px;
+        flex: 1 1 auto;
+        padding: 0px 16px;
+    }
+
+    .button-Wrap{margin-bottom:16px}
+    .reset-Pw-Button{
+        font-size: 11px;
+        font-weight: normal;
+        line-height: 16px;
+        letter-spacing: normal;
+        display: block;
+        float: left;
+        color: rgb(168, 174, 179);
+        margin: 0px;
+    
+    }
+    .join-Button{
+        font-size: 11px;
+        font-weight: normal;
+        line-height: 16px;
+        letter-spacing: normal;
+        display: block;
+        text-align: right;
+        color: rgb(168, 174, 179);
+        margin: 0px;
+    }
+    .btn{
+        color: rgb(255, 255, 255);
+        background: rgb(255, 146, 43);
+        border: 0;
+        line-height: 2.428571;
+        font-size: 18px;
+        border-radius: 3px;
+        width: 100%;
+        height: 50px;
+        }
+    .btn:hover {
+        color: white;
+        text-decoration: none;
+        background: rgb(238, 118, 6);
+        }
+
+    .Button-Text{
+        font-weight: 700;
+        font-size: 18px
+    }
+    .Login-Form-Background{display:inline-block}
+
+    img{ margin-left: auto; border-style: none;}
+    @media(max-width:1023px){
+        .Login-Form-Background{display: none;}
+        .Login-Form-Container{margin-top: 50px;}
+    }
+
+    .kakaobtn{
+        background-color: rgb(255, 232, 18);
+        margin-bottom: 8px;
+        color: rgb(62, 64, 66);
+        border-radius: 3px;
+        transition: filter 0.1s ease 0s;}
+    .kakaobtn:hover{
+        background-color: gold;
+    }
+    .kakaobtn>a{color:black;
+        text-decoration: none;}
+        
+     /*-----비밀번호 찾기-----*/
+     .page-Messege h1{
+        margin-top: 150px;
+        font-size: 32px;
+        line-height: 44px;
+        letter-spacing: 15.4px;
+        margin: 16px 0px 16px;
+        font-weight: 600;
+    }
+    .resetPw-form{
+        margin-top: 20px;
+   
+    }
+    .page-Messege{
+        width: 45%;
+        margin: auto;
+        line-height: normal;
+    }
+    .pg{padding:160px 0px;}
+    .send-Mail{
+        color: white;
+        background-color: black;
+        margin-top:16px;
+    }
+    .send-Mail:hover{
+        background: rgb(168, 174, 179);
+        
+    }
+
+    /*------회원가입------*/
+    .Join-Container,.Update-Container{padding:24px;}
+    .Join-Form-Container{
+        margin: 0 auto;
+        margin-top: 50px;
+        width: 60%;}
+   .Update-Form-Container{
+       margin: 0 auto;
+        margin-top: 50px;
+        width: 60%;}
+        
+    @media(max-width:1023px){
+        .Join-Form-Container{
+            margin: 0 auto;
+            margin-top: 50px;
+            width: 100%;}
+    }
+    .Join-Form-Container h1,.Update-Form-Container h1{
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 44px;
+        letter-spacing: -0.6px;
+        margin: 16px 0px 48px;
+        
+    }
+
+    .addr{
+        font-size: 14px;
+        font-weight: normal;
+        height: 48px;
+        width: 80%;
+        color: rgb(27, 28, 29);
+        box-sizing: border-box;
+        margin: 0px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(221, 224, 226);
+        border-image: initial;
+        flex: 1 1 auto;
+        padding: 0px 16px;
+
+    }
+    .add-Btn{
+        display: inline-block;
+        width: 20%;
+        height: 48px;
+        font-size: 14px;
+        border-radius: 0px;
+        margin-bottom: 3px;
+    }
+    .Input-Field{
+        position: relative;
+        display: table;
+        border-collapse: separate;
+        border-radius: 3px;
+    }
+/*-----결제하기-----*/
+.Pay-Header{
+    background-color: rgb(27, 28, 29);
+    padding: 24px;
+}
+.Pay-Text{
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    margin: 0px 8px 0px 0px;
+}
+.container-P{
+    width: 640px;
+    margin: 0px auto;
+}
+.Pay-Title{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(27, 28, 29);
+    line-height: 28px;
+    margin-bottom: 16px;
+}
+.module{
+    position: relative;
+    width: 100%;
+    margin-top: 16px;
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    border-radius: 1px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(205, 209, 212);
+    border-image: initial;
+    padding: 12px 16px;
+}
+.Icpay{
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+.Card-Text{
+    display: inline-block;
+    vertical-align: middle;
+}
+#Ic-Check1,#Ic-Check2{
+    display: none;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+}
+/*--업데이트수정폼---*/
+.update-Form{padding-bottom: 10px;}
+.sign-Out-Btn{background-color: rgb(168, 174, 179);}
+.sign-Out-Btn:hover {background-color: rgb(137, 142, 146);}
+.I-see-Class{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(27, 28, 29);
+    line-height: 24px;
+    letter-spacing: -0.45px;
+    margin: 0px;
+}
+/*--모달---*/
+.modal_wrap{
+        display: none;
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        margin: -250px 0 0 -250px;
+        background:#eee;
+        z-index: 2;
+    }
+    .black_bg{
+        display: none;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100vh;
+        background-color:rgba(0, 0,0, 0.5);
+        top:0;
+        left: 0;
+        z-index: 1;
+    }
+    .modal_close{
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        top: -30px;
+        right: 0;
+    }
+    .modal_close> a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        background:url(https://img.icons8.com/metro/26/000000/close-window.png);
+        text-indent: -9999px;
+    }
+    /*비밀번호 재설정*/
+    .page-Messege h2{
+        margin-top: 150px;
+       font-size: 32px;
+       line-height: 44px;
+       letter-spacing: -0.6px;
+       margin: 16px 0px 16px;
+       font-weight: 600;
+    }
+    
+     .newPwBtn{margin-top: 10px;}

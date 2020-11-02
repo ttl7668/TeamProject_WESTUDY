@@ -1,0 +1,46 @@
+/* 성동구 명조 */
+@font-face { font-family: 'SungDongMyungjo'; font-style: normal; font-weight: 400; src: url('//cdn.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongMyungjo/SungDongMyungjoR.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongMyungjo/SungDongMyungjoR.woff') format('woff'); } @font-face { font-family: 'SungDongMyungjo'; font-style: normal; font-weight: 700; src: url('//cdn.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongMyungjo/SungDongMyungjoB.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongMyungjo/SungDongMyungjoB.woff') format('woff'); } .sungdongmyungjo * { font-family: 'SungDongMyungjo', serif; }
+
+@font-face {
+	font-family: 'NEXON Lv1 Gothic OTF';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body{font-family: 'NEXON Lv1 Gothic OTF';
+    font-style: normal; 
+    font-weight: normal;
+    background-image:
+    url("../img/computer-768608_1920.jpg");
+}
+*{
+    margin: 0 auto;
+}
+
+html, body, section {
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+}
+
+.right{
+    display: inline-block;
+    height: 100%;
+    width: 500px;
+    z-index: 10;
+    background-color: #fcf8f3;
+}
+
+.right > div {
+    padding: 340px 100px 0px 100px;
+}
+
+button{
+    margin:10px;
+    height: 35px;
+    width: 100%;
+    color: #fcf8f3;
+    border: 0;
+    background-color: #ffaaa5;
+}

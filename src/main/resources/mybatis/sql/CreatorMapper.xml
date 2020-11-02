@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.project.creator.mapper">
+    
+      <select id="getMaxEno" resultType="Integer">
+      	 select IFNULL(MAX(eno),0) from EnrollBoard
+      </select>
+      
+      <insert id="insertEnrollBoard">
+      	insert into EnrollBoard (pno, title, content, writer) values (#{pno}, #{title}, #{content}, #{writer})
+      </insert>
+      
+      <select id="getEnrollList"  resultType="EnrollBoardVO">
+      	select * from EnrollBoard where pno = #{pno}
+      </select>
+      
+      <select id="getEnrollStudentList"  resultType="EnrollBoardVO">
+      	select * from EnrollBoard where pno = #{pno} and pub = 'true'
+      </select>
+      
+      <select id="getEnrollDetailBoard" parameterType="map" resultType="EnrollBoardVO">
+      	select * from EnrollBoard where pno = #{pno} and eno = #{eno}
+      </select>
+      
+      <select id="getUserProductList" resultType="ProductVO">
+      	select * from products where uno = #{uno}
+      </select>
+      
+      <select id="IsCreator" resultType="Integer">
+      	select count(*) from products where uno = #{uno} and pno = #{pno}
+      </select>
+      
+      <update id="pubSetAllFalse">
+      		update EnrollBoard set pub = 'false'
+      </update>
+      
+      <update id="pubSet">
+      		update EnrollBoard set pub = 'true' where eno = #{eno }
+      </update>
+      
+      <delete id="deleteEnrollBoard">
+      		delete from EnrollBoard where pno=#{pno} and eno=#{eno}
+      </delete>
+      
+      <update id="modifyEnrollBoard">
+      		update EnrollBoard set title=#{title},content=#{content} where pno=#{pno} and eno=#{eno}
+      </update>
+      
+</mapper>
+

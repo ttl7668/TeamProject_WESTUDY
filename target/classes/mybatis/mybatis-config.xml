@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+<configuration>
+
+      <typeAliases>
+            <typeAlias alias="UserVO" type="com.project.user.vo.UserVO"/>
+            <typeAlias alias="ProductVO" type="com.project.product.vo.ProductVO"/>
+            <typeAlias alias="ProductResultVO" type="com.project.product.vo.ProductResultVO"/>
+            <typeAlias alias="EnrollBoardVO" type="com.project.creator.vo.EnrollBoardVO"/>
+            <typeAlias alias="ReviewVO" type="com.project.review.vo.ReviewVO"/>
+            <typeAlias alias="LineGraphVO" type="com.project.highchart.vo.LineGraphVO"/>
+            <typeAlias alias="PiGraphVO" type="com.project.highchart.vo.PiGraphVO"/>
+      </typeAliases>
+ 
+ 
+</configuration>
